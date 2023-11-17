@@ -1,0 +1,27 @@
+#tomcat port
+server:
+  port: 8949
+ #jsp
+spring:
+  #mvc:
+    #view:
+      #prefix: /WEB-INF/
+      #suffix: .jsp
+  devtools:
+    livereload:
+      enabled: true
+#mysql
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://final.c3mrqflxzcg0.ap-northeast-2.rds.amazonaws.com:3306/sagobye?serverTimezone=Asia/Seoul
+    username: admin
+    password: rdsmysql
+        
+        
+#mybatis
+mybatis:
+  type-aliases-package: boot.data.*
+  mapper-locations:
+  - mapper/**/*.xml
+
+

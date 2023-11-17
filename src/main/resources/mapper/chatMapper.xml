@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="boot.data.mapper.ChatMapper">
+	<!-- 채팅방 리스트 불러오기 -->
+	<select id="getChatList" parameterType="String" resultType="chatList">
+		SELECT * FROM chatList WHERE mem_id=#{mem_id}
+	</select>
+	
+	<!-- 채팅방 생성 -->
+	<insert id="insertRoomInfo" parameterType="Map">
+		BEGIN
+			 INSERT INTO chatRoom VALUES(null,
+										 #{one_mem_id},
+										 #{two_mem_id},
+										 #{one_store_nickname},
+										 #{two_store_nickname},
+										 #{one_store_img},
+										 #{two_store_img},
+										 now());
+										
+	 		 INSERT INTO chatList VALUES(#{one_mem_id},
+										 #{chat_seq},
+										 #{two_store_nickname},
+										 #{two_store_img},
+										 #{last_message},
+										 now());
+										
+			 INSERT INTO chatList VALUES(#{two_mem_id},
+										 #{chat_seq},
+										 #{one_store_nickname},
+										 #{one_store_img},
+										 #{last_message},
+										 now());
+		END;
+	</insert>
+	
+	<!-- 채팅방 생성 여부 -->
+ 	<select id="checkChatId" parameterType="Map" resultType="chatRoom">
+		SELECT * from chatRoom
+		WHERE one_mem_id IN( #{one_mem_id}, #{two_mem_id} )
+		AND two_mem_id IN( #{two_mem_id}, #{one_mem_id} )
+	</select> 
+
+	<!-- 마지막 메시지 -->
+	<update id="setLastMessage" parameterType="Map">
+		UPDATE chatList SET last_message=#{last_message} WHERE chat_seq=#{chat_seq}
+	</update>
+
+</mapper>
