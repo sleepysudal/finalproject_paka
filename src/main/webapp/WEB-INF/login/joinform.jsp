@@ -60,14 +60,14 @@ function check() {
 <body>
  <!-- onsubmit return 값이 false면 안넘겨줌 -->
 	<div style="margin:100px 500px; width: 40vw; height:100vh;"  >
-		<form action="insert" method="post" enctype="multipart/form-data" onsubmit="return check()">
+		<form action="join" method="post" enctype="multipart/form-data" onsubmit="return check()">
 			<h1>회원가입</h1>
 			<br>
 			<!--  u_id , u_name ,u_email, u_pass, u_writerdate , u_final_logindate -->
 			 <div>
 			 <h5>Id</h5>
 			 	<div>
-			 	<input type="text" placeholder="id를 입력해주세요" required="required" class="bottom-border" style="width:40vw; height:4vh;">
+			 	<input type="text" name="u_id" placeholder="id를 입력해주세요" required="required" class="bottom-border" style="width:40vw; height:4vh;">
 			 	</div>
 			 </div>
 			 
@@ -76,7 +76,7 @@ function check() {
 			 <div>
 			 <h5>Pass</h5>
 			 	<div>
-			 	<input type="password" placeholder="영문,숫자,특수문자 조합 8~16자" required="required" class="bottom-border" style="width:40vw; height:4vh;">
+			 	<input type="password" name="u_pass" placeholder="영문,숫자,특수문자 조합 8~16자" required="required" class="bottom-border" style="width:40vw; height:4vh;">
 			 	</div>
 			 </div>
 			 
@@ -85,7 +85,7 @@ function check() {
 			 <div>
 			 <h5>Name</h5>
 			 	<div>
-			 	<input type="text" placeholder="이름을 입력해주세요" required="required" class="bottom-border" style="width:40vw; height:4vh;">
+			 	<input type="text" name="u_name" placeholder="이름을 입력해주세요" required="required" class="bottom-border" style="width:40vw; height:4vh;">
 			 	</div>
 			 </div>
 			 
@@ -94,7 +94,7 @@ function check() {
 			 <div>
 			 <h5>Email</h5>
 			 	<div>
-			 	<input type="text" placeholder="예)example@gmail.com" required="required" class="bottom-border" style="width:40vw; height:4vh;">
+			 	<input type="text" name="u_email" placeholder="예)example@gmail.com" required="required" class="bottom-border" style="width:40vw; height:4vh;">
 			 	</div>
 			 </div>
 			 
@@ -105,7 +105,7 @@ function check() {
 			 	<input type="checkbox" id="checkbox1">
 			 	<span>[필수] 만 14세 이상이며 모두 동의합니다.</span>
 			 	</label>
-			 	<i class="bi bi-plus" style="font-size:20pt;"></i>
+			 	
 			 </div>
 			 
 			 
@@ -116,13 +116,13 @@ function check() {
 			 	<input type="checkbox" id="checkbox2">
 			 	<span>[선택] 광고성 정보 수신에 모두 동의합니다.</span>
 			 	</label>
-			 	<i class="bi bi-plus"></i>
+			 	
 			 </div>
 			 
 			 <br>
 			 
-			 <button type="button" id="btnjoin" style="align:center; width:40vw; height:10vh; border-radius: 30px; border: 0px; font-size: 20pt; color: white; background-color: lightgray"
-			 onclick="location.href='#'">
+			 <button type="submit" id="btnjoin" style="align:center; width:40vw; height:10vh; 
+			 border-radius: 30px; border: 0px; font-size: 20pt; color: white; background-color: lightgray">
 			 가입하기
 			 </button>
 			 

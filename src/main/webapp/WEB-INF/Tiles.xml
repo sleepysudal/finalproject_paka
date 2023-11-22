@@ -11,62 +11,50 @@
       <put-attribute name="footer" value="/WEB-INF/layout/footer.jsp"/>
    </definition>
    
-   <!-- name은 mapping주소가 됨 -->
-   <!-- <definition name="home.titles" extends="layout1">
-   	<put-attribute name="main" value="/WEB-INF/layout/main.jsp"></put-attribute>
-   </definition>
-   
-   <definition name="list.titles" extends="layout1">
-   	<put-attribute name="main" value="/WEB-INF/board/list.jsp"></put-attribute>
-   </definition>
-   
-   <definition name="input.titles" extends="layout1">
-   	<put-attribute name="main" value="/WEB-INF/board/addform.jsp"></put-attribute>
-   </definition> -->
-   
    <!-- wild card, tiles mapping방법, name은 mapping주소, 1은 파일주소, 2는 jsp파일이름 -->
-   <definition name="/*/*" extends="layout1">
+   <definition name="/1/*/*" extends="layout1">
    	<put-attribute name="main" value="/WEB-INF/{1}/{2}.jsp"></put-attribute>
    </definition>
    
-   <!-- 레이아웃2, category page -->
-   <definition name="layout2" template="/WEB-INF/layout/layout2.jsp">
+   <!-- wild card 레이아웃2 -->
+   <!--<definition name="/*/*" extends="layout2">
+   	<put-attribute name="category" value="/WEB-INF/{1}/{2}.jsp"></put-attribute>
+   </definition>-->
+   
+   <!-- 레이아웃2, detail page -->
+   <definition name="layout2" template="/WEB-INF/layout2/layout2.jsp">
       <put-attribute name="menu" value="/WEB-INF/layout/menu.jsp"/>
-      <put-attribute name="header" value="/WEB-INF/layout/header2.jsp"/>
       <put-attribute name="main" value="/WEB-INF/layout/main.jsp"/>
       <put-attribute name="footer" value="/WEB-INF/layout/footer.jsp"/>
    </definition>
    
    <!-- wild card 레이아웃2 -->
-   <definition name="/category/*/*" extends="layout2">
+   <definition name="/2/*/*" extends="layout2">
    	<put-attribute name="main" value="/WEB-INF/{1}/{2}.jsp"></put-attribute>
    </definition>
    
-   <!-- 레이아웃3, detail page -->
-   <definition name="layout3" template="/WEB-INF/layout/layout3.jsp">
-      <put-attribute name="menu" value="/WEB-INF/layout/menu.jsp"/>
-      <put-attribute name="header" value="/WEB-INF/layout/header3.jsp"/>
-      <put-attribute name="detail" value="/WEB-INF/layout/detail.jsp"/>
-      <put-attribute name="main" value="/WEB-INF/layout/main3.jsp"/>
-      <put-attribute name="footer" value="/WEB-INF/layout/footer.jsp"/>
+   <!-- 레이아웃3 -->
+   <definition name="layout3" template="/WEB-INF/layout3/layout3.jsp">
+      <put-attribute name="main" value="/WEB-INF/layout/main.jsp"/>
    </definition>
    
    <!-- wild card 레이아웃3 -->
-   <definition name="/detail/*/*" extends="layout3">
+   <definition name="/3/*/*" extends="layout3">
    	<put-attribute name="main" value="/WEB-INF/{1}/{2}.jsp"></put-attribute>
    </definition>
    
-   <!-- 레이아웃4, Login page -->
-   <definition name="layout4" template="/WEB-INF/layout/layout4.jsp">
-      <put-attribute name="menu" value="/WEB-INF/layout/menu.jsp"/>
-      <put-attribute name="login" value="/WEB-INF/login/loginform.jsp"/>
-      <put-attribute name="footer" value="/WEB-INF/layout/footer.jsp"/>
+   <!-- admin_레이아웃 -->
+   <definition name="admin_layout" template="/WEB-INF/layout-admin/admin_layout.jsp">
+      <put-attribute name="main" value="/WEB-INF/layout-admin/admin_main.jsp"/>
+      <put-attribute name="menu" value="/WEB-INF/layout-admin/admin_menu.jsp"/> 
    </definition>
    
-   <!-- wild card 레이아웃4 -->
-   <definition name="/index/*/*" extends="layout4">
+   <!-- wild card admin_레이아웃 -->
+   <definition name="/admin/*/*" extends="admin_layout">
    	<put-attribute name="main" value="/WEB-INF/{1}/{2}.jsp"></put-attribute>
    </definition>
+   
+   
    
    
 

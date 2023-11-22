@@ -4,6 +4,6 @@
 
 <mapper namespace="boot.data.mapper.SearchMapperInter">
 	<select id="sangSearch" parameterType="String" resultType="String">
-  		select j_title from junggosangpum where j_title like concat('%',#{search},'%')
+  		select j_title from junggosangpum where j_title like concat('%',#{search},'%')  order by j_title limit 5
   	</select>
 </mapper>

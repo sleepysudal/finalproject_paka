@@ -1,40 +1,32 @@
 package boot.data.controller;
 
-import java.util.List;
-
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import boot.data.test1.ChatRoomTest;
-import boot.data.test1.ChatServiceTest;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class IndexController {
 	
-	//기본페이지 요청 메서드
 	@GetMapping("/")
 	public String index() {
-		return "/layout/main"; //layout 폴더의 main.jsp를 찾아감
+		return "/1/layout/main";
 	}
 	
-	@GetMapping("/index2")
+	@GetMapping("/detail")
 	public String index2() {
-		return "/category/layout/main";
+		return"/2/detail/detail";
 	}
 	
-	@GetMapping("/index3")
+	@GetMapping("/search")
 	public String index3() {
-		return "/detail/layout/main";
+		return"/3/search2/search2";
 	}
 	
-	@GetMapping("/loginform")
-	public String loginform() {
-		return "/index/login/main";
+	@GetMapping("/admin")
+	public String adminIndex() {
+		return"/admin/layout-admin/admin_main";
 	}
-	@GetMapping("/index3/chat")
-	public String chat() {
-        return "/chattest/chatList";
-	}
+	
+	
 	
 }

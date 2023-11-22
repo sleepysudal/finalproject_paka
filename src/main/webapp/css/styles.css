@@ -104,6 +104,37 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+/*	HC's_CSS	--	start	*/
+.sort{
+	display: flex;
+	justify-content: space-between;
+}
+.sort_insert{
+	float: left;
+}
+
+.sort_listType{
+	  float: right;
+  }
+
+.Product_title, .Product_category, .Product_name, .Product_price, .Product_file{
+	display: flex;
+	justify-content: space-between;
+	padding-top: 0.25rem;
+	padding-bottom: 0.25rem;
+}
+
+.Product_content > textarea{
+	height: 30vh;
+	padding-top: 0.25rem;
+	padding-bottom: 0.25rem;
+}
+
+.insert_content{
+	width: 23vw;
+}
+/*	HC's_CSS	--	end	*/
+
 hr {
   margin: 1rem 0;
   color: inherit;
@@ -379,18 +410,8 @@ select:disabled {
   display: none !important;
 }
 
-button,
-[type=button],
-[type=reset],
-[type=submit] {
-  -webkit-appearance: button;
-}
-button:not(:disabled),
-[type=button]:not(:disabled),
-[type=reset]:not(:disabled),
-[type=submit]:not(:disabled) {
-  cursor: pointer;
-}
+
+
 
 ::-moz-focus-inner {
   padding: 0;

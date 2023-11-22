@@ -22,16 +22,18 @@
 			<div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
 				<div class="card card-signin my-5">
 					<div class="card-body">
-						<h5 class="card-title text-center"><b>Log In</b></h5>
+						<h5 class="card-title text-center">
+							<b>Log In</b>
+						</h5>
 						<form class="form-signin " method="post" action="login">
 							<div class="form-label-group">
-								<input type="text" id="id" name="id" class="form-control"
+								<input type="text" id="u_id" name="u_id" class="form-control"
 									placeholder="id" required autofocus>
 							</div>
 							<br>
 
 							<div class="form-label-group">
-								<input type="password" id="pwd" name="pwd" class="form-control"
+								<input type="password" id="u_pass" name="u_pass" class="form-control"
 									placeholder="Password" required>
 							</div>
 
@@ -43,24 +45,27 @@
 								</c:if>
 							</div>
 
-							<button class="btn btn-lg btn-secondary btn-block text-uppercase"
-								type="submit">Sign in</button>
+
+							<button type="submit" style="border:2px solid white; border-radius:30px; background-color:lightgray; color:white;
+							width:42vh; height:6.1vh;">Sign in</button>
 								
-								<br>
+							<br>
 							
 							<button type="button" style="border:2px solid white; background-color:white">
-								<img src="../img/naverlogo.png" style="width:13.6vh; height:6.1vh;">
+								<img src="../img/naverlogo.png" style="width:20vh; height:6.1vh; border-radius:30px;">
 							</button>
+							
 							
 							<button type="button" style="border:2px solid white; background-color:white">
-								<img src="../img/kakaologo.png" style="width:13.6vh; height:6.1vh;">
+								<img src="../img/kakaologo.png" style="width:20vh; height:6.1vh; border-radius: 30px;">
 							</button>
-							
+								
+								
 							<hr class="my-4">
 							Forgot your <a href="javascript:void(0)" onclick="findid()">ID</a>
 							or <a href="javascript:void(0)" onclick="findpassword()">Password</a>?
 							<button class="btn btn-lg btn-dark btn-block text-uppercase"
-								onclick="location='/member/join'">Join</button>
+								onclick="location='joinform'">Join</button>
 						</form>
 					</div>
 				</div>
@@ -68,19 +73,24 @@
 		</div>
 	</div>
 
-<script type="text/javascript">	
-  function findid(){
-		var url="find_id_form";
-		
-		window.open(url, "_blank_1", "toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=500, height=500");
-	}
-  
-  function findpassword(){
-	  var url="find_password_form";
-	  
-	  window.open(url, "_blank_1", "toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=500, height=500");
-  }
-  </script>
+	<script type="text/javascript">
+		function findid() {
+			var url = "find_id_form";
+
+			window
+					.open(url, "_blank_1",
+							"toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=500, height=500");
+		}
+
+		function findpassword() {
+			var url = "find_password_form";
+
+			window
+					.open(url, "_blank_1",
+							"toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=500, height=500");
+		}
+	</script>
+
 
 </body>
 </html>

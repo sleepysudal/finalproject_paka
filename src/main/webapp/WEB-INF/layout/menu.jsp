@@ -12,13 +12,8 @@
 <link
    href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Gamja+Flower&family=Nanum+Pen+Script&family=Noto+Serif+KR:wght@200&display=swap"
    rel="stylesheet">
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-3.6.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <title>Insert title here</title>
-
-
 
 <script type="text/javascript">
    $(function(){
@@ -33,17 +28,10 @@
             url:"/search/result",
             data:{"search":search},
             success:function(res){
-               /* $("#search" ).autocomplete({
-                    source: res,
-                    //minLength:1
-            }); */
-               
-               
- 
                var s="";
                
                $.each(res,function(i,dto){
-                  s+="<span class='spsearchResult'><b onclick='selectSearch()' class='searchResult'style='font-size: 15pt;'>"+dto+"</b></span><br>"
+                  s+="<b onclick='selectSearch()' class='searchResult'style='font-size: 15pt;'>"+dto+"</b><br>"
                });
                
                if(search==""){
@@ -51,30 +39,26 @@
                }
                else{
                   $("#result").html(s);
-                  
-                  //alert($("#result").text())
-               } 
+               }
             }
          });
-         
       });
 
-
-       $("#search").keypress(function(e){
-         //검색어 입력 후 엔터키 입력하면 조회버튼 클릭
-         if(e.keyCode && e.keyCode == 13){
-            $("#btnsearch").trigger("click");
-            return false;
-         }
-         //엔터키 막기
-         if(e.keyCode && e.keyCode == 13){
-              e.preventDefault();     
-         }
-      });
-
+      $("#search").keypress(function(e){
+			//검색어 입력 후 엔터키 입력하면 조회버튼 클릭
+			if(e.keyCode && e.keyCode == 13){
+				$("#btnsearch").trigger("click");
+				return false;
+			}
+			//엔터키 막기
+			if(e.keyCode && e.keyCode == 13){
+				  e.preventDefault();	
+			}
+		});
+      
       $("#btnsearch").click(function(){
-         alert("이벤트 감지");
-      });
+			alert("이벤트 감지");
+		});
    });
    
    function selectSearch() {
@@ -84,72 +68,21 @@
           
           $("#search").val(s);
           $("#result").html("");
-          
        });
     }
    
-   /*  $(document).on("keydown","#search", function(e){
-      if(e.which == 40){
-        var currentResult = $(".searchResult:eq(0)");
-        
-        currentResult.css("background-color", "lightgray");
-         
-          for(var i=0; i<5; i++){
-            
-           var currentResult = $(".searchResult:eq(" + i + ")");
-           var color = currentResult.css("color");
-           
-           //alert(color)
-            
-           if(color==="rgb(33, 37, 41)"){
-             
-              currentResult.css("background-color", "lightgray");
-
-               if (i > 0) {
-                     $(".searchResult:eq(" + (i - 1) + ")").css("background-color", "white");
-                 }  
-            }
-         }  
-            
-      }
-   });  */
-    
-    document.addEventListener('keydown', function(event) {
-        switch(event.key) {
-             case 'ArrowUp':
-                // 위쪽 방향키 눌렸을 때의 동작
-                //console.log('Up key pressed');
-               $(".searchResult:eq(0)").css("background-color","red");
-                break; 
-            case 'ArrowDown':
-                // 아래쪽 방향키 눌렸을 때의 동작
-               // console.log('Down key pressed');
-                $(".searchResult:eq(0)").css("background-color","blue");
-                break;
-            
-        }
-    });
-    
-
    
-   
-   
-   
-    $(document).on("mouseover",".searchResult", function(event){
-      $(this).css("background-color", "lightgray");
-   });
-   
-   $(document).on("mouseout",".searchResult", function(event){
-      $(this).css("background-color", "white");
-   });    
+   $(document).on("mouseover",".searchResult", function(event){
+		$(this).css("background-color", "lightgray");
+	});
+	
+	$(document).on("mouseout",".searchResult", function(event){
+		$(this).css("background-color", "white");
+	}); 
 </script>
 <style type="text/css">
 .searchResult{
    cursor: pointer;
-}
-
-.selected{
-   background-color: lightgray;
 }
 
 nav{
@@ -158,43 +91,65 @@ nav{
 </style>
 </head>
 <body>
-   <!-- Navigation-->
-   <nav class="navbar navbar-expand-lg navbar-light">
-      <div class="container px-4 px-lg-3">
-         <a class="navbar-brand" href="/">
-            <img alt="" src="../img/icon.PNG" style="width: 20vh;"> 
-         </a>
-         <button class="navbar-toggler" type="button"
-            data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-         </button>
-         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-               <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Home</a></li>
-               <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
-               <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Fleamarket</a>
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                     <li><a class="dropdown-item" href="/index2">All Products</a></li>
-                     <li><hr class="dropdown-divider" /></li>
-                     <li><a class="dropdown-item" href="#!">Popular Items</a></li>
-                     <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
-                  </ul></li>
-            </ul>
-            
-            
+	<!-- Navigation-->
+	<nav class="navbar navbar-expand-lg navbar-light">
+		<div class="container px-4 px-lg-3">
+			<a class="navbar-brand" href="/">
+				<img alt="" src="../img/icon.PNG" style="width: 20vh;"> 
+			</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+					<li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Home</a></li>
+					<li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Fleamarket</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<li><a class="dropdown-item" href="/index2">All Products</a></li>
+							<li><hr class="dropdown-divider" /></li>
+							<li><a class="dropdown-item" href="#!">Popular Items</a></li>
+							<li><a class="dropdown-item" href="#!">New Arrivals</a></li>
+						</ul></li>
+				</ul>
+				 
+				
+				<c:if test="${sessionScope.loginok==null }">
+				<button type="button" class="btn btn-outline-primary" onclick="location.href='loginform'">로그인</button>
+				</c:if>
+				
+				<c:if test="${sessionScope.loginok!=null && sessionScope.myid!='ho' &&sessionScope.myid!='wish'}">
+				<img alt="" src="../img/hani1.jpeg" width="50vw" height="50vh" align="left" style="border-radius:30px;"/>
+				<b>${sessionScope.myname}님이 로그인중입니다</b>
+				<button type="button" class="btn btn-outline-primary" onclick="location.href='logoutprocess'">로그아웃</button>
+				</c:if>
+				
+				<c:if test="${sessionScope.loginok!=null && sessionScope.myid=='ho' &&sessionScope.myid!='wish'}">
+				<img alt="" src="../img/wow3.jpeg" width="50vw" height="50vh" align="left" style="border-radius:30px;"/>
+				<b>${sessionScope.myname}님이 로그인중입니다</b>
+				<button type="button" class="btn btn-outline-primary" onclick="location.href='logoutprocess'">로그아웃</button>
+				</c:if>
+				
+				<c:if test="${sessionScope.loginok!=null && sessionScope.myid!='ho' && sessionScope.myid=='wish' }">
+				<img alt="" src="../img/wish.jpeg" width="50vw" height="50vh" align="left" style="border-radius:30px;"/>
+				<b>${sessionScope.myname}님이 로그인중입니다</b>
+				<button type="button" class="btn btn-outline-primary" onclick="location.href='logoutprocess'">로그아웃</button>
+				</c:if>
+				
+				
+				<!-- 검색창 -->
+				<div class="input-group w-25" >
+					<input type="search" class="form-control rounded"
+						placeholder="Search" aria-label="Search"
+						aria-describedby="search-addon" id="search"/>
+					<button type="button" class="btn btn-dark" onclick="location.href='/search'">search</button>
+				</div>
+				
 
-            <!-- 검색창 -->
-            <div class="input-group w-25" >
-               <input type="search" class="form-control rounded"
-                  placeholder="Search" aria-label="Search"
-                  aria-describedby="search-addon" id="search" /> <!-- autocomplete="off" -->
-               <button type="button" id="btnsearch" class="btn btn-dark" onclick="location.href='/loginform'">search</button>
-               
-               
-            </div>
             <div id="result"></div>
             
 
